@@ -6,7 +6,6 @@ PROGS = sumvec \
     sumarrayrows\
 	sumarraycols\
 	sumarray3d\
-	classexample
 
 all: $(PROGS) timing.h
 
@@ -22,8 +21,6 @@ sumarrayrcols: sumarraycols.c
 sumarray3d: sumarray3d.c
 	$(CC) $(CFLAGS) $^ -o $@
 
-classexample: classexample.c
-	$(CC) $(CFLAGS) $^ -o $@
 
 clean:
 	rm -f $(PROGS) *.o *~ 
