@@ -3,7 +3,7 @@
 
 In this activity, you will examine cache misses resulting from real code. The provided code  is similar to the code that you observed in the Activity 18. Discuss each question with your table and 
 write your answers in this README file.
-You will:
+
 
 ## Provided Code
 
@@ -52,7 +52,7 @@ order to track cache misses in this code.
 
 You run `valgrind` with its `cachegrind` tool like this:
 
-    valgrind --tool=cachegrind ./sumvec -n 1048576 -s 1
+    valgrind --tool=cachegrind --cache-sim=yes ./sumvec -n 1048576 -s 1
 
 This will show the number of cache misses in the *D* caches, which hold the data array used in this code, for the best case: stride-1. 
 
@@ -62,7 +62,7 @@ You can also observe instructions misses by checking the miss rate for the I1 ca
 
 Now try running it again with various values of stride greater than 1, like this, for stride of 8:
 
-    valgrind --tool=cachegrind ./sumvec -n 1048576 -s 8
+    valgrind --tool=cachegrind --cache-sim=yes ./sumvec -n 1048576 -s 8
 
 Verify that for stride 1 and any other stride, the number of data references, D, are close to the same, but not identical (this is because the stride-1 function is still slightly different than the code for the stride function).
 
